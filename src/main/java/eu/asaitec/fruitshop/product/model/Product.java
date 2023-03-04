@@ -1,7 +1,8 @@
 package eu.asaitec.fruitshop.product.model;
 
-import jakarta.persistence.*;
 
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 
