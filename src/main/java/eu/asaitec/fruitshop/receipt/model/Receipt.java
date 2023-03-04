@@ -1,11 +1,20 @@
 package eu.asaitec.fruitshop.receipt.model;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "receipts")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Receipt {
         @Id
         @Column(name = "id")
@@ -16,8 +25,7 @@ public class Receipt {
         private String productName;
 
         @Column(name = "quantity")
-        private BigDecimal quantity;
-
+        private String quantity;
 
 
 }

@@ -1,6 +1,10 @@
 package eu.asaitec.fruitshop.csv.helper;
 
-import eu.asaitec.fruitshop.receipt.dto.Receipt;
+import eu.asaitec.fruitshop.receipt.mapper.ModelToDto;
+import eu.asaitec.fruitshop.receipt.dto.ReceiptDto;
+import eu.asaitec.fruitshop.receipt.model.Receipt;
+
+import lombok.AllArgsConstructor;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -15,9 +19,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+@AllArgsConstructor
 public class CSVHelper {
     public static String TYPE = "text/csv";
     static String[] HEADERs = { "PRODUCT, QUANTITY"};
+    
+    private static final ModelToDto modelToDto = null;
+
+   
 
     public static boolean hasCSVFormat(MultipartFile file) {
 
@@ -38,10 +47,15 @@ public class CSVHelper {
             Iterable<CSVRecord> csvRecords = csvParser.getRecords();
 
             for (CSVRecord csvRecord : csvRecords) {
-                Receipt Receipt = new Receipt(
+//                Receipt Receipt = new Receipt(
+//                        csvRecord.get("PRODUCT"),
+//                        csvRecord.get("QUANTITY")
+//                );
+
+                ReceiptDto receiptDto = new ReceiptDto( 
                         csvRecord.get("PRODUCT"),
-                        csvRecord.get("QUANTITY")
-                );
+                       csvRecord.get("QUANTITY"));
+                Receipt Receipt = modelToDto.map(receiptDto);
 
                 Receipts.add(Receipt);
             }

@@ -10,9 +10,10 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @AllArgsConstructor
-public class Receipt {
+public class ReceiptDto {
     private String productName;
-    private String quantity;
+    private String  quantity;
+
 
 
 
