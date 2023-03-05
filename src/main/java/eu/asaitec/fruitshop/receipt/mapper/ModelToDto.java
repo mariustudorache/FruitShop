@@ -7,7 +7,7 @@ public class ModelToDto  implements  IMapper<ReceiptDto, Receipt>{
     @Override
     public Receipt map(ReceiptDto in) {
         Receipt receipt = new Receipt();
-        receipt.setQuantity(in.getQuantity().toString());
+        receipt.setQuantity(in.getQuantity());
         receipt.setProductName(in.getProductName());
         return receipt;
     }

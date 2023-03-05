@@ -28,4 +28,8 @@ public class Receipt {
         private String quantity;
 
 
+        public Receipt(String product, String quantity) {
+                this.productName = product;
+                this.quantity = quantity;
+        }
 }

@@ -47,17 +47,15 @@ public class CSVHelper {
             Iterable<CSVRecord> csvRecords = csvParser.getRecords();
 
             for (CSVRecord csvRecord : csvRecords) {
-//                Receipt Receipt = new Receipt(
-//                        csvRecord.get("PRODUCT"),
-//                        csvRecord.get("QUANTITY")
-//                );
-
-                ReceiptDto receiptDto = new ReceiptDto( 
+                Receipt receipt = new Receipt(
                         csvRecord.get("PRODUCT"),
-                       csvRecord.get("QUANTITY"));
-                Receipt Receipt = modelToDto.map(receiptDto);
+                        csvRecord.get("QUANTITY")
+                );
 
-                Receipts.add(Receipt);
+
+
+
+                Receipts.add(receipt);
             }
 
             return Receipts;
